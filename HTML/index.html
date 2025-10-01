@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Gimnasio</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-titulo">
+        <img src="/IMG/7682e2f52ea4c3b075d070b514116556.jpg" alt="Logo Gimnasio" class="logo-img" />
+        <span class="logo-text">Gym App</span>
+      </div>
+      <nav>
+        <button onclick="mostrarSeccion('login')"><span>🔑</span> Login</button>
+        <button onclick="mostrarSeccion('asistencia')"><span>🕒</span> Asistencia</button>
+        <button onclick="mostrarSeccion('rutinas')"><span>💪</span> Rutinas</button>
+        <button onclick="mostrarSeccion('clases')"><span>📅</span> Clases</button>
+        <button onclick="cerrarSesion()"><span>📕</span> Logout</button>
+      </nav>
+      <!-- Banner de imágenes motivacionales -->
+      <div class="banner-imagenes">
+        <img
+          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
+          alt="Motivación gimnasio"
+        />
+        <img
+          src="https://media.revistagq.com/photos/65b12cfd195fefc5e6d8fe02/3:2/w_2559,h_1706,c_limit/fitness%20portada.jpg"
+          alt="Entrenamiento"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+          alt="Pesas"
+        />
+      </div>
+    </header>
+    <!-- Mensaje global -->
+    <div
+      id="mensajeGlobal"
+      style="opacity: 0; transition: opacity 0.5s; text-align: center; font-weight: bold; margin: 1rem 0"
+    ></div>
+    <main>
+      <!-- Login -->
+      <section id="login" class="seccion activa">
+        <h2>Ingreso de Socios</h2>
+        <form id="loginForm" autocomplete="off">
+          <input type="text" id="usuario" placeholder="Usuario" required />
+          <input type="password" id="clave" placeholder="Contraseña" required />
+          <button type="submit"><span>🔓</span> Ingresar</button>
+        </form>
+        <p id="loginMsg"></p>
+
+        <h3>Registrar nuevo socio</h3>
+        <form id="registroForm" autocomplete="off">
+          <input type="text" id="nuevoUsuario" placeholder="Nuevo usuario" required />
+          <input type="password" id="nuevaClave" placeholder="Nueva clave" required />
+          <button type="submit"><span>📝</span> Registrar</button>
+        </form>
+        <p id="registroMsg"></p>
+      </section>
+
+      <!-- Asistencia -->
+      <section id="asistencia" class="seccion">
+        <h2>Registrar Asistencia</h2>
+        <button onclick="registrarAsistencia()"><span>✅</span> Registrar Entrada</button>
+        <ul id="listaAsistencia"></ul>
+      </section>
+
+      <!-- Rutinas -->
+      <section id="rutinas" class="seccion">
+        <h2>Mis Rutinas</h2>
+        <label for="rutinaSelect">Agregar una rutina:</label>
+        <select id="rutinaSelect">
+          <option value="Lunes">Lunes</option>
+          <option value="Martes">Martes</option>
+          <option value="Miércoles">Miércoles</option>
+        </select>
+        <button onclick="asignarRutina(document.getElementById('rutinaSelect').value)"><span>➕</span> Agregar</button>
+        <ul id="listaRutinas"></ul>
+      </section>
+
+      <!-- Clases -->
+      <section id="clases" class="seccion">
+        <h2>Reservar Clase</h2>
+        <label for="claseSelect">Selecciona una clase:</label>
+        <select id="claseSelect">
+          <option value="Spinning">🚴 Spinning</option>
+          <option value="Funcional">🤸 Funcional</option>
+          <option value="Yoga">🧘 Yoga</option>
+        </select>
+        <button onclick="reservarClase()"><span>📝</span> Reservar</button>
+        <ul id="listaClases"></ul>
+      </section>
+    </main>
+
+    <footer>© 2025 Gym App | Tu gimnasio, tu salud, tu vida</footer>
+
+    <script src="/JS/app.js"></script>
+  </body>
+</html>
